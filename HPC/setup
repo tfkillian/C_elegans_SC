@@ -1,0 +1,42 @@
+##################
+# General HPC commands
+##################
+
+vsc31750@login.hpc.kuleuven.be
+
+module load accounting 
+mam-balance
+
+# From local to HPC
+scp foo.txt <vsc-account>@login.hpc.kuleuven.be:
+
+# From HPC to local
+scp <vsc-account>@login.hpc.kuleuven.be:foo.txt .
+
+
+#---------------------
+# Job handling 
+qsub -A default_project <file> #Submit a job (returns the job ID)
+	    # Output <file>.oJOBID (console output) and <file>.eJOBID (console error)
+
+qstat <jobid> # To get the status information on your job
+checkjob <jobid> # Same but more info
+qdel <jobid> # To remove a job from the queue so that it will not run, or to stop a job that is already running.
+
+showq -s # Exmine the queue 
+
+
+#--------------------
+
+
+
+
+##################
+# Initiate the HPC
+##################
+
+source switch_to_2015a
+module load R/3.4.2-foss-2015a
+module load libXt/1.1.4-foss-2015a-libX11-1.6.3
+
+20666620

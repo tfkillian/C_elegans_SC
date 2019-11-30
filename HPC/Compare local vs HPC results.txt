@@ -1,0 +1,26 @@
+#############################################
+# Compare local analysis vs HPC analysis 
+# Script from the PAGODA tutorial 
+
+### From SCDE tutorial (expected) with 1 core:
+      DCX     EGR1      FOS  IGFBPL1   MALAT1    MEF2C    STMN2    TOP2A 
+ 5.000000 5.000000 5.000000 5.000000 5.000000 5.000000 5.000000 5.000000 
+   BCL11A     SOX4 
+ 4.755811 4.522795
+
+### From my laptop (scde version 2.4.1) with 4 cores:
+     DCX     EGR1      FOS  IGFBPL1   MALAT1    MEF2C    STMN2    TOP2A  
+5.000000 5.000000 5.000000 5.000000 5.000000 5.000000 5.000000 5.000000 
+  BCL11A     SOX4 
+4.740304 4.463686 
+
+### From HPC (scde version 2.4.1) with 4 cores:
+> sort(varinfo$arv, decreasing = TRUE)[1:10]
+     DCX     EGR1      FOS  IGFBPL1   MALAT1    MEF2C    STMN2    TOP2A 
+5.000000 5.000000 5.000000 5.000000 5.000000 5.000000 5.000000 5.000000 
+  BCL11A     SOX4 
+4.740304 4.463686 
+
+Same results between local and HPC but different than tutorial. Explanation:
+- Parallelization affects results 
+
